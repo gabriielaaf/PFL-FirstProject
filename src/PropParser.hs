@@ -15,3 +15,10 @@ constant =
     <|>
     (do char 'F'
         return (Const False))
+
+name :: Parser Prop
+name = do n <- satisfy isLower
+          return (Var n)
+
+factor :: Parser Prop
+factor = name <|> constant
