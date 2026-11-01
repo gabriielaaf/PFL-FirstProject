@@ -29,3 +29,10 @@ vars (Or p q) = vars p ++ vars q
 
 varsUnique :: Prop -> [Char]
 varsUnique p = nub (vars p)
+
+bools :: Int -> [[Bool]]
+bools 0 = [[]]
+bools num = [False : xs | xs <- bools (num-1)] ++ [True : xs | xs <- bools (num-1)]
+
+envs :: [Char] -> [Env]
+envs xs = [zip xs bs | bs <- bools(length xs)]
