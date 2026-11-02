@@ -36,3 +36,6 @@ bools num = [False : xs | xs <- bools (num-1)] ++ [True : xs | xs <- bools (num-
 
 envs :: [Char] -> [Env]
 envs xs = [zip xs bs | bs <- bools(length xs)]
+
+truthTable :: Prop -> [Bool]
+truthTable p = [eval env p | env <- envs (varsUnique p)]
