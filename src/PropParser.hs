@@ -2,7 +2,6 @@ module PropParser where
 
 import Parsing
 import Prop
-import Data.Char
 
 prop :: Parser Prop
 prop = do t <- term
