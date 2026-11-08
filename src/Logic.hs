@@ -39,3 +39,9 @@ envs xs = [zip xs bs | bs <- bools(length xs)]
 
 truthTable :: Prop -> [Bool]
 truthTable p = [eval env p | env <- envs (varsUnique p)]
+
+classify :: Prop -> String
+classify p
+    | and (truthTable p) = "TAUTOLOGY"
+    | not (or (truthTable p)) = "CONTRADICTION"
+    | otherwise = "CONTINGENT"
