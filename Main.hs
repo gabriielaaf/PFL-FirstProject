@@ -1,6 +1,6 @@
 module Main where
 
-import Prop
+import App (runApp)
 
 main :: IO ()
-main = return ()
+main = runApp

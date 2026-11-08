@@ -17,8 +17,9 @@ constant =
         return (Const False))
 
 name :: Parser Prop
-name = do n <- satisfy isLower
-          return (Var n)
+name = do
+    n <- satisfy (\c -> c >= 'a' && c <= 'z')
+    return (Var n)
 
 factor :: Parser Prop
 factor = 
